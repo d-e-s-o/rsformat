@@ -1,0 +1,38 @@
+[package]
+name = "rsformat"
+version = "0.0.0"
+edition = "2021"
+authors = ["Daniel Mueller <deso@posteo.net>"]
+license = "GPL-3.0-or-later"
+homepage = "https://github.com/d-e-s-o/rsformat"
+repository = "https://github.com/d-e-s-o/rsformat.git"
+readme = "README.md"
+categories = [
+  "command-line-utilities",
+  "development-tools",
+  "parser-implementations",
+  "text-processing",
+]
+keywords = [
+  "cli",
+  "diff",
+  "git",
+  "text",
+  "utility",
+]
+description = """
+A program to incrementally reformat changed files using rustfmt.
+"""
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+incremental = false
+
+[dependencies]
+diff-parse = "0.1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
